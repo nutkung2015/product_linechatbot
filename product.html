@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furry Shop - Pet Grooming</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00897b;
+            --secondary-color: #b2dfdb;
+        }
+
+        .navbar {
+            background-color: #8CB9BD;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        navbar-nav .nav-link {
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #00897b;
+        }
+
+        .language-switch .btn {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+            color: #666;
+            background: transparent;
+            border: none;
+        }
+
+        .language-switch .btn.active {
+            color: #00897b;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #ECB159;
+            border-color: #a97f40;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+        }
+
+        .btn-primary:hover {
+            background-color: #a57c3f;
+            border-color: #e76f51;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #e0f2f1;
+            color: #00897b;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: white;
+                padding: 1rem;
+                border-radius: 10px;
+                margin-top: 1rem;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+
+        .hero-section {
+            background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+            /* padding: 80px 0; */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content h1 {
+            color: var(--primary-color);
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* .img-head{
+            width: 400px;
+            height: 300px;
+        } */
+
+        .categories {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.category-card {
+    background: #D1E3E5;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 15px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .category-card:nth-child(2) {
+    background: linear-gradient(180deg, #B4E4E7 0%, #8B4513 100%);
+}
+
+.category-card:nth-child(3) {
+    background: linear-gradient(180deg, #B4E4E7 0%, #CD853F 100%);
+} */
+
+.category-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+}
+
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
+.category-card h3 {
+    color: #000000;
+    font-size: 1.5rem;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.categories h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.categories p {
+    color: #666;
+    margin-bottom: 40px;
+}
+.product-section {
+    padding: 40px 0;
+    background-color: #fff;
+}
+
+.filters-section {
+    margin-bottom: 30px;
+}
+
+.filters-section h4 {
+    color: #D35F35;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.filters-section .clear-filters {
+    color: #999;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.form-check {
+    margin-bottom: 10px;
+}
+
+.form-check-label {
+    color: #666;
+    font-size: 14px;
+}
+
+.product-grid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.product-count {
+    color: #666;
+    font-size: 14px;
+}
+
+.sort-dropdown {
+    border: 1px solid #ddd;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: #666;
+}
+
+.product-card {
+    background: #EAEAEA;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: none;
+    box-shadow: none;
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    /* object-fit: contain; */
+    /* margin-bottom: 15px; */
+    /* background-color: #fff; */
+    /* border-radius: 8px; */
+}
+
+.product-info h3 {
+    font-size: 16px;
+    color: #D35F35;
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.price {
+    color: #D35F35;
+    font-size: 16px;
+}
+
+.btn-buy {
+    background-color: #ECB159;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-size: 14px;
+}
+
+.btn-buy:hover {
+    background-color: #D35F35;
+}
+
+.load-more {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.load-more-btn {
+    border: 1px solid #D35F35;
+    color: #D35F35;
+    background: none;
+    padding: 8px 30px;
+    border-radius: 20px;
+}
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="">
+                <img src="/img/Group 1000000991.png" alt="Furry" height="40" class="img-head">
+            </a>
+
+            <!-- Hamburger button for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Items -->
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">หน้าแรก</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">บริการ</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/services/grooming">อาบน้ำ</a></li>
+                            <li><a class="dropdown-item" href="/services/spa">สปา</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/shop">ร้านค้า</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/consultation">ปรึกษาเจ้าหน้าที่</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">บัญชี</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/profile">โปรไฟล์</a></li>
+                            <li><a class="dropdown-item" href="/orders">ประวัติการสั่งซื้อ</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">เกี่ยวกับเรา</a>
+                    </li>
+                </ul>
+
+                <!-- Right Side Items -->
+                <div class="d-flex align-items-center">
+                    <!-- Language Switcher -->
+                    <div class="language-switch me-3">
+                        <a href="?lang=th" class="btn btn-sm active">TH</a>
+                        <a href="?lang=en" class="btn btn-sm">EN</a>
+                    </div>
+
+                    <!-- Login Button -->
+                    <a href="/login" class="btn btn-primary">นัดหมาย</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <img src="/img/image 23.png" alt="">
+        <!-- <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 hero-content">
+                    <h1>PET GROOMING</h1>
+                    <h2>HAPPY & HEALTHY</h2>
+                    <p class="lead">Customers can make an appointment for bathing and other caring for their pets. There are specialized services for each healthy lifestyle.</p>
+                    <button class="btn btn-primary btn-lg">Book Now</button>
+                </div>
+                <div class="col-md-6">
+                    <img src="/images/hero-pet.png" alt="Pet Grooming" class="hero-image">
+                </div>
+            </div>
+        </div> -->
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2>Categories</h2>
+            <p class="text-muted mb-5">เลือกผลิตภัณฑ์ที่คุณต้องการได้ตามหมวดหมู่ด้านล่าง</p>
+    
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="/img/Group 1000001113.png" alt="Shampoo">
+                        <h3>แชมพู</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="/img/222222222.png" alt="Conditioner">
+                        <h3>ครีมนวด</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="/img/3333333333.png" alt="Treatment">
+                        <h3>ผลิตภัณฑ์บำรุงขน</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="product-section">
+        <div class="container">
+            <div class="row">
+                <!-- Filters -->
+                <div class="col-md-3">
+                    <div class="filters-section">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4>Filters</h4>
+                            <a href="#" class="clear-filters">Clear filters</a>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="shampoo">
+                            <label class="form-check-label" for="shampoo">แชมพู</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="conditioner">
+                            <label class="form-check-label" for="conditioner">ครีมนวด</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="treatment">
+                            <label class="form-check-label" for="treatment">ผลิตภัณฑ์บำรุงขน</label>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Products Grid -->
+                <div class="col-md-9">
+                    <div class="product-grid-header">
+                        <span class="product-count">Showing 1003 Products</span>
+                        <select class="sort-dropdown">
+                            <option>Popular</option>
+                            <option>Newest</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                        </select>
+                    </div>
+    
+                    <div class="row">
+                        <!-- Product Card -->
+                        <div class="col-md-4">
+                            <div class="product-card">
+                                <img src="/img/g11.png" alt="Pet Shampoo">
+                                <div class="product-info">
+                                    <h3>แชมพูสุนัขสูตรอ่อนโยน</h3>
+                                    <p>เป็นแชมพูสูตรอ่อนโยนสำหรับสุนัขที่มีผิวแพ้ง่าย</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">฿500.00</span>
+                                        <button class="btn btn-buy">ซื้อ</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product-card">
+                                <img src="/img/g22.png" alt="Pet Shampoo">
+                                <div class="product-info">
+                                    <h3>แชมพูสุนัขสูตรอ่อนโยน</h3>
+                                    <p>เป็นแชมพูสูตรอ่อนโยนสำหรับสุนัขที่มีผิวแพ้ง่าย</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">฿500.00</span>
+                                        <button class="btn btn-buy">ซื้อ</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product-card">
+                                <img src="/img/g33.png" alt="Pet Shampoo">
+                                <div class="product-info">
+                                    <h3>แชมพูสุนัขสูตรอ่อนโยน</h3>
+                                    <p>เป็นแชมพูสูตรอ่อนโยนสำหรับสุนัขที่มีผิวแพ้ง่าย</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">฿500.00</span>
+                                        <button class="btn btn-buy">ซื้อ</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product-card">
+                                <img src="/img/g33.png" alt="Pet Shampoo">
+                                <div class="product-info">
+                                    <h3>แชมพูสุนัขสูตรอ่อนโยน</h3>
+                                    <p>เป็นแชมพูสูตรอ่อนโยนสำหรับสุนัขที่มีผิวแพ้ง่าย</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">฿500.00</span>
+                                        <button class="btn btn-buy">ซื้อ</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product-card">
+                                <img src="/img/g11.png" alt="Pet Shampoo">
+                                <div class="product-info">
+                                    <h3>แชมพูสุนัขสูตรอ่อนโยน</h3>
+                                    <p>เป็นแชมพูสูตรอ่อนโยนสำหรับสุนัขที่มีผิวแพ้ง่าย</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">฿500.00</span>
+                                        <button class="btn btn-buy">ซื้อ</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product-card">
+                                <img src="/img/g22.png" alt="Pet Shampoo">
+                                <div class="product-info">
+                                    <h3>แชมพูสุนัขสูตรอ่อนโยน</h3>
+                                    <p>เป็นแชมพูสูตรอ่อนโยนสำหรับสุนัขที่มีผิวแพ้ง่าย</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">฿500.00</span>
+                                        <button class="btn btn-buy">ซื้อ</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Repeat similar product cards -->
+                    </div>
+    
+                    <div class="load-more">
+                        <button class="load-more-btn">Load more products</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
